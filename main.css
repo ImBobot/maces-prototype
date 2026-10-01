@@ -174,15 +174,24 @@
     position:relative;
     overflow:hidden;
     padding: 96px 0 84px;
-    background: var(--paper);
+    background:
+      linear-gradient(rgba(239,238,231,0.3), rgba(239,238,231,0.3)),
+      url("scaffold-hero.png") center / cover no-repeat;
   }
   .hero-grid{
     display:grid;
-    grid-template-columns: 1.05fr 0.85fr;
+    grid-template-columns: 1fr;
     gap: 40px;
     align-items:center;
     position:relative;
     z-index:2;
+  }
+  .hero-grid > .reveal:first-child{
+    max-width:760px;
+    padding:28px;
+    background:rgba(239,238,231,0.78);
+    border:1px solid rgba(255,255,255,0.7);
+    box-shadow:0 12px 30px rgba(13,35,51,0.12);
   }
   .eyebrow{
     display:inline-flex;
@@ -220,11 +229,7 @@
     flex-wrap:wrap;
   }
   .hero-visual{
-    position:relative;
-    height: 420px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:none;
   }
   .hero-backdrop{
     position:absolute;
@@ -245,7 +250,7 @@
     position:absolute;
     inset:0;
     z-index:1;
-    opacity: 0.5;
+    opacity: 0.12;
     pointer-events:none;
   }
 
@@ -271,6 +276,27 @@
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
+
+  .cv-builder-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    padding:42px 48px;
+    background:var(--lavender);
+    border:1px solid var(--lavender-deep);
+  }
+  .cv-builder-card h2{
+    max-width:620px;
+    font-size:clamp(30px,4vw,44px);
+    margin-top:14px;
+  }
+  .cv-builder-card p{
+    max-width:58ch;
+    color:#3B444D;
+    margin-top:14px;
+  }
+  .cv-builder-card .btn{flex-shrink:0;}
 
   /* ---------- program tag cards ---------- */
   .programs-grid{
@@ -502,6 +528,7 @@
     .process-rail{ grid-template-columns: 1fr 1fr; gap: 32px 0; }
     .process-rail::before{ display:none; }
     .contact-grid{ grid-template-columns: 1fr; }
+    .cv-builder-card{ align-items:flex-start; flex-direction:column; }
   }
   @media (max-width: 560px){
     .wrap{ padding: 0 20px; }
@@ -512,4 +539,6 @@
     .hero{ padding: 64px 0 56px; }
     section{ padding: 64px 0; }
     .hero-ctas .btn{ width:100%; }
+    .cv-builder-card{ padding:32px 24px; }
+    .cv-builder-card .btn{ width:100%; }
   }
